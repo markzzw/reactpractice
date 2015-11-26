@@ -15,8 +15,11 @@
     	<script type="text/javascript" src="js/JSXTransformer.js"></script>
     	<script type="text/jsx">
     		var  MyFirstReact = React.createClass({
+    			alertMe:function(){
+    				alert("you just clicked me!");
+    			},
     			render:function(){
-    				return (<h1>hello world!!!</h1>);
+    				return (<h1 onClick={this.alertMe}>hello world!!!</h1>);
     			}
     		});
     		React.render(

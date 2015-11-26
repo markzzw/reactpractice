@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>reactPracticeOne</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+</head>
+<body>
+    <div id="app"></div>
+        <script type="text/javascript" src="js/react.js"></script>
+        <script type="text/javascript" src="js/JSXTransformer.js"></script>
+        <script type="text/jsx">
+            var  MyFirstReact = React.createClass({
+                getInitialState:function(){
+                    return {
+                        isVisible:true,
+                        title:'你好（来自state）',
+                    }
+                },
+                render:function(){
+                    var styleObj={
+                        display: this.state.isVisible ? 'block' : 'none',
+                    }
+                    return (
+                        <div>
+                            <h1 style={styleObj}>{this.state.title}</h1>
+                            <SubMesg/>
+                        </div>
+                        )
+                }
+                    
+            });/*这里遇到一个问题就是以后命名都要首字母大写，然后驼峰式命名法则，不然会出错*/
+            var SubMesg = React.createClass({
+                render:function (){
+                    return (
+                        <div>
+                            <h3>我是第二个组件</h3>
+                            <Footer/>
+                        </div>
+                        )
+                }
+            });
+            var Footer = React.createClass({
+                render:function(){
+                    return (
+                    
+                        <small>我是第三个组件</small>
+                    
+                    )
+                }
+            });
+            var mesgBox = React.render(
+                <MyFirstReact/>,
+                document.getElementById("app")
+                );
+        </script>
+    
+</body>
+</html>
